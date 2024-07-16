@@ -68,3 +68,17 @@ h1 {
 .controls {
     margin-top: 20px;
 }
+
+#score-container {
+    margin-top: 20px;
+}
+
+.correct {
+    background-color: #28a745;
+    color: white;
+}
+
+.wrong {
+    background-color: #dc3545;
+    color: white;
+}
