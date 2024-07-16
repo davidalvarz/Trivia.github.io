@@ -153,9 +153,9 @@ function selectAnswer(e) {
     });
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
         currentQuestionIndex++;
-        setTimeout(() => setNextQuestion(), 1000);
+        setTimeout(setNextQuestion, 1000);
     } else {
-        setTimeout(() => showScore(), 1000);
+        setTimeout(showScore, 1000);
     }
 }
 
