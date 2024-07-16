@@ -168,4 +168,18 @@ function setStatusClass(element, correct) {
     if (correct) {
         element.classList.add('correct');
     } else {
-        element.classList.add
+        element.classList.add('wrong');
+    }
+}
+
+function clearStatusClass(element) {
+    element.classList.remove('correct');
+    element.classList.remove('wrong');
+}
+
+function showScore() {
+    questionContainerElement.classList.add('hide');
+    scoreContainerElement.classList.remove('hide');
+    scoreElement.innerText = `Tu puntuación es: ${score}/${questions.length}`;
+    restartButton.classList.remove('hide');
+}
