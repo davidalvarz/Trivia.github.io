@@ -109,10 +109,19 @@ function startGame() {
     startButton.classList.add('hide');
     scoreContainerElement.classList.add('hide');
     questionContainerElement.classList.remove('hide');
-    shuffledQuestions = questions.sort(() => Math.random() - 0.5);
+    shuffledQuestions = shuffleArray(questions);
     currentQuestionIndex = 0;
     score = 0;
     setNextQuestion();
+}
+
+function shuffleArray(array) {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
 }
 
 function setNextQuestion() {
@@ -178,4 +187,4 @@ function showScore() {
     scoreContainerElement.classList.remove('hide');
     scoreElement.innerText = `Tu puntuación es: ${score}/${questions.length}`;
     restartButton.classList.remove('hide');
-}
+            }
