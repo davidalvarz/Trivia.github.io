@@ -103,10 +103,6 @@ const questions = [
 ];
 
 startButton.addEventListener('click', startGame);
-nextButton.addEventListener('click', () => {
-    currentQuestionIndex++;
-    setNextQuestion();
-});
 restartButton.addEventListener('click', startGame);
 
 function startGame() {
@@ -140,7 +136,6 @@ function showQuestion(question) {
 
 function resetState() {
     clearStatusClass(document.body);
-    nextButton.classList.add('hide');
     while (answerButtonsElement.firstChild) {
         answerButtonsElement.removeChild(answerButtonsElement.firstChild);
     }
@@ -157,9 +152,10 @@ function selectAnswer(e) {
         setStatusClass(button, button.dataset.correct);
     });
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
-        nextButton.classList.remove('hide');
+        currentQuestionIndex++;
+        setTimeout(() => setNextQuestion(), 1000);
     } else {
-        showScore();
+        setTimeout(() => showScore(), 1000);
     }
 }
 
